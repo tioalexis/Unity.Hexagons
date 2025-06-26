@@ -37,6 +37,11 @@ namespace Cyl.Hexagons
         public virtual HexLayout Layout { get; } = new HexLayout();
 
         /// <summary>
+        /// The transform that holds the grid.
+        /// </summary>
+        public virtual Transform RootTransform => transform;
+
+        /// <summary>
         /// The radius of the outer circle of a hexagonal cell in the grid.
         /// Also referred to as the size of a hexagonal cell.
         /// A scale of 1 results in a cell size of ~0.57735.
@@ -210,7 +215,7 @@ namespace Cyl.Hexagons
         /// <returns>The world position of the hexagonal cell at the specified column and row.</returns>
         public Vector3 GetWorldPosition(int col, int row)
         {
-            return Layout.OffsetHexToWorld(new Hex(col, row), transform.position, CellSize);
+            return Layout.OffsetHexToWorld(new Hex(col, row), RootTransform.position, CellSize);
         }
         
         /// <summary>
@@ -220,7 +225,7 @@ namespace Cyl.Hexagons
         /// <returns>The grid position in hexagonal coordinates corresponding to the world position.</returns>
         public Hex GetGridPosition(Vector3 worldPosition)
         {
-            return Layout.WorldToAxialHex(worldPosition, transform.position, CellSize);
+            return Layout.WorldToAxialHex(worldPosition, RootTransform.position, CellSize);
         }
         
         /// <summary>
