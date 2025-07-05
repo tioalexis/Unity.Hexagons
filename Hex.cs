@@ -187,6 +187,40 @@ namespace Cyl.Hexagons
         };
         
         /// <summary>
+        /// Factory method to create a new Hex from cube coordinates (q, r, s).
+        /// </summary>
+        /// <param name="q">The q-coordinate (horizontal axis).</param>
+        /// <param name="r">The r-coordinate (diagonal axis).</param>
+        /// <returns>A new Hex instance representing the cube coordinates.</returns>
+        public static Hex CreateFromCube(int q, int r)
+        {
+            return new Hex(q, r, -q - r);
+        }
+
+        /// <summary>
+        /// Factory method to create a new Hex from cube coordinates (q, r, s).
+        /// </summary>
+        /// <param name="q">The q-coordinate (horizontal axis).</param>
+        /// <param name="r">The r-coordinate (diagonal axis).</param>
+        /// <param name="s">The s-coordinate (negative sum of q and r).</param>
+        /// <returns>A new Hex instance representing the cube coordinates.</returns>
+        public static Hex CreateFromCube(int q, int r, int s)
+        {
+            return new Hex(q, r, s);
+        }
+        
+        /// <summary>
+        /// Factory method to create a new Hex from offset coordinates (col, row).
+        /// </summary>
+        /// <param name="col">The column coordinate (horizontal axis).</param>
+        /// <param name="row"> The row coordinate (vertical axis).</param>
+        /// <returns>A new Hex instance representing the offset coordinates.</returns>
+        public static Hex CreateFromOffset(int col, int row)
+        {
+            return new Hex(col, row);
+        }
+        
+        /// <summary>
         /// Adds two VectorHexes together.
         /// </summary>
         /// <param name="a">The first Hex.</param>
