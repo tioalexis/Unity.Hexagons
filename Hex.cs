@@ -58,6 +58,21 @@ namespace Cyl.Hexagons
         public int Row { get; private set; }
         
         /// <summary>
+        /// The q-coordinate (horizontal axis) in cube coordinates.
+        /// </summary>
+        public int Q => _q;
+        
+        /// <summary>
+        /// The r-coordinate (diagonal axis) in cube coordinates.
+        /// </summary>
+        public int R => _r;
+        
+        /// <summary>
+        /// The s-coordinate (negative sum of q and r) in cube coordinates.
+        /// </summary>
+        public int S => _s;
+        
+        /// <summary>
         /// Constructs a new Hex from cube coordinates (q, r, s).
         /// </summary>
         /// <param name="q">The q-coordinate (horizontal axis).</param>
